@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4bfc64163c028cb49b8723a7837ce15d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - GameCamera: {instanceID: 0}
+  - player: {instanceID: 0}
+  - basicPts: {fileID: 6497924532496887832, guid: b4acdcccb2bb6934fb0f0fc224d4216d, type: 3}
+  - rarePts: {fileID: 2850482822127522927, guid: 95e21a61a9f973d4094ebdbe9e9c935b, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

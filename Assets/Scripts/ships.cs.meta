@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: fbe8c28234287eb42a9e457920d0668e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - GameCamera: {instanceID: 0}
+  - Lazer: {fileID: 5514112413552805417, guid: ac1658bd9a1d2824aa82ba31396bd9d9, type: 3}
+  - LazerPos: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
