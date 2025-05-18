@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: e5abc717d0b903c478eda39c566d7cf3
   - enabled: 1
+    path: Assets/Scenes/Briefing.unity
+    guid: 3d60b09015826a9409f457226cc4965a
+  - enabled: 1
     path: Assets/Scenes/Singleplayer.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1

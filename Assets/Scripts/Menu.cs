@@ -8,12 +8,14 @@ public class Menu : MonoBehaviour
     // A method that is assigned to a button which loads singlplayer mode.
     public void playSingleplayer()
     {
-        SceneManager.LoadScene("Singleplayer");
+        GameSettings.SelectedMode = GameSettings.GameMode.Singleplayer;
+        SceneManager.LoadScene("Briefing");
     }
     // A method that is assigned to a button which loads multiplayer mode.
     public void playMultiplayer()
     {
-        SceneManager.LoadScene("Multiplayer");
+        GameSettings.SelectedMode = GameSettings.GameMode.Multiplayer;
+        SceneManager.LoadScene("Briefing");
     }
     // A method that is assigned to a button which closes the game.
     public void quitGame()

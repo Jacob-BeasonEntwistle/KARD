@@ -12,7 +12,12 @@ public class GameManager : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
             // the main menu is loaded
-            SceneManager.LoadScene("MainMenu");
+            MainMenu();
         }
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

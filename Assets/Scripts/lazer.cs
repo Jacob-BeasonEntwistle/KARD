@@ -25,17 +25,6 @@ public class lazer : MonoBehaviour
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
     }
 
-    // When the collider is triggered...
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        // if the lazer collides with the player...
-        if (other.gameObject.tag == "Player")
-        {
-            // the lazer is destroyed.
-            Destroy(gameObject);
-        }
-    }
-
     // When the object leaves the bounds of all cameras...
     void OnBecameInvisible()
     {
