@@ -9,10 +9,10 @@ public class PlayerAnimation : MonoBehaviour
     // The total number of frames for the player.
     private Vector2 numberOfFrames = new Vector2(2, 2);
 
-    private Vector2 size;                   // The size of the visible sprite.
+    private Vector2 size;                  // The size of the visible sprite.
     public MeshRenderer animRenderer;      // Stores the renderer of the sprite.
 
-    public PlayerMovement Player;
+    public PlayerMovement Player;          // Creates a reference to the players movement.
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +35,17 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Player == null || animRenderer == null)
+        {
+            return;
+        }
+
+        // Gets the horizontal and vertical input of the player at the start of each frame
+        float horiz = Input.GetAxis(Player.horizontalAxis);
+        float vert = Input.GetAxis(Player.verticalAxis);
+
         // If the player is moving down...
-        if (Input.GetAxis(Player.horizontalAxis) < 0)
+        if (vert < 0)
         {
             // the first frame is displayed.
             currentFrame.x = 0;
@@ -44,7 +53,7 @@ public class PlayerAnimation : MonoBehaviour
         }
 
         // If the player is moving up...
-        if (Input.GetAxis(Player.verticalAxis) > 0)
+        if (vert > 0)
         {
             // the second frame is displayed.
             currentFrame.x = 1;
@@ -52,7 +61,7 @@ public class PlayerAnimation : MonoBehaviour
         }
 
         // If the player is moving left...
-        if (Input.GetAxis(Player.horizontalAxis) < 0)
+        if (horiz < 0)
         {
             // the first frame of the second line is displayed.
             currentFrame.x = 0;
@@ -60,7 +69,7 @@ public class PlayerAnimation : MonoBehaviour
         }
 
         // If the player is moving right...
-        if (Input.GetAxis(Player.verticalAxis) > 0)
+        if (horiz > 0)
         {
             // the second frame of the second line is displayed.
             currentFrame.x = 1;

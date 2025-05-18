@@ -5,7 +5,7 @@ using UnityEngine;
 public class cargo : MonoBehaviour
 {
     // A variable for the camera to be stored at.
-    public Camera GameCamera;
+    public Camera playerCamera;
     // A variable for a reference to the player object to be stored.
     public GameObject player;
 
@@ -22,7 +22,7 @@ public class cargo : MonoBehaviour
     void Start()
     {
         // Finds the camera in the scene.
-        GameCamera = GameObject.FindObjectOfType<Camera>();
+        playerCamera = GameObject.FindObjectOfType<Camera>();
 
         // Finds the game object labelled Player.
         player = GameObject.FindWithTag("Player");
@@ -57,27 +57,14 @@ public class cargo : MonoBehaviour
         // and if the player triggers it...
         if (other.gameObject.tag == "Player")
         {
-            // a message is sent in the console...
-            Debug.Log("Cargo collected, +" + value + " points");
-            // the value of the cargo is added to the score...
-            cargoSpawner.score += value;
-            // cargo collected becomes true...
-            cargoCollected = true;
-            // Then the cargo is destroyed.
-            Destroy(gameObject);
-        }
-
-        // and if player 2 triggers it...
-        if (other.gameObject.tag == "Player2")
-        {
-            // a message is sent in the console...
-            Debug.Log("Cargo collected, +" + value + " points");
-            // the value of the cargo is added to the 2nd score...
-            cargoSpawner.score2 += value;
-            // cargo collected becomes true...
-            cargoCollected = true;
-            // Then the cargo is destroyed.
-            Destroy(gameObject);
+            PlayerScore playerScore = other.GetComponent<PlayerScore>();
+            if (playerScore != null)
+            {
+                playerScore.AddScore(value);
+                Debug.Log("Cargo collected, +" + value + " points");
+                cargoCollected = true;
+                Destroy(gameObject);
+            }
         }
 
         // If the cargo spawns in a moon...
@@ -100,6 +87,6 @@ public class cargo : MonoBehaviour
     {
         // Return will send the value to the getRandomHeight() called earlier in the script.
         // Random.Range will pick a value between the two values within the brackets.
-        return Random.Range((-(GameCamera.pixelHeight) / 100) * 1.5f, ((GameCamera.pixelHeight) / 100) * 1.5f);
+        return Random.Range((-(playerCamera.pixelHeight) / 100) * 1.5f, ((playerCamera.pixelHeight) / 100) * 1.5f);
     }
 }

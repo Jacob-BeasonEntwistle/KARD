@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class boost : MonoBehaviour
 {
-    public Camera GameCamera;
+    public Camera playerCamera;
     public GameObject player;
 
     private void Start()
     {
         // Finds the camera in the scene.
-        GameCamera = GameObject.FindObjectOfType<Camera>();
+        playerCamera = GameObject.FindObjectOfType<Camera>();
         
         // Finds the game object labelled Player.
         player = GameObject.FindWithTag("Player");
@@ -25,23 +25,15 @@ public class boost : MonoBehaviour
         // if the colliding game object is tagged "Player"...
         if (other.gameObject.tag == "Player")
         {
-            // a message is sent to the console...
-            Debug.Log("BOOST");
-            // isBoosting becomes true which affects the movement script...
-            Movement.isBoosting = true;
-            // and the boost object is destroyed.
-            Destroy(gameObject);
-        }
-
-        // and if player 2 triggers it...
-        if (other.gameObject.tag == "Player2")
-        {
-            // a message is sent to the console...
-            Debug.Log("BOOST");
-            // isBoosting becomes true which affects the movement script...
-            Movement.isBoosting = true;
-            // and the boost object is destroyed.
-            Destroy(gameObject);
+            PlayerMovement movement = other.gameObject.GetComponent<PlayerMovement>();
+            if (movement != null)
+            {
+                // a message is sent to the console...
+                Debug.Log("BOOST");
+                movement.isBoosting = true;
+                // and the boost object is destroyed.
+                Destroy(gameObject);
+            }
         }
 
         // If the cargo spawns in a moon...
@@ -65,6 +57,6 @@ public class boost : MonoBehaviour
     {
         // Return will send the value to the getRandomHeight() called earlier in the script.
         // Random.Range will pick a value between the two values within the brackets.
-        return Random.Range((-(GameCamera.pixelHeight) / 100) * 1.2f, ((GameCamera.pixelHeight) / 100) * 1.2f);
+        return Random.Range((-(playerCamera.pixelHeight) / 100) * 1.2f, ((playerCamera.pixelHeight) / 100) * 1.2f);
     }
 }

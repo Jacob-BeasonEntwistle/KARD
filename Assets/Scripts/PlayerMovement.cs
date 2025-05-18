@@ -13,12 +13,10 @@ public class PlayerMovement : MonoBehaviour
     private float y = 0.0f;
 
     private float speed = 3f;               // Controls the speed of the player movement.
-    public static bool isBoosting;
+    public bool isBoosting;                 // Bool to state whether the player is boosting or not.
     private float boost = 7.5f;             // Adds a boost to the speed of the player.
     private float boostCounter = 3f;        // When it reaches 0, the boost stops.
     public Texture boostEffect;             // Allows for a texture to be attached.
-
-    private float spriteSize = 40.0f;       // Set the size of the sprite.
 
     // Start is called before the first frame update.
     void Start()
@@ -50,8 +48,23 @@ public class PlayerMovement : MonoBehaviour
         // Sets the y position to increase based off of the calculations done.
         pos += new Vector3(0, move * speed) * Time.deltaTime;
 
-        // Sets a new default position of the player to (0,0) when the player tries to leave the boundary.
-        Vector3 newPos = (Vector2)playerCamera.WorldToScreenPoint(transform.position + pos);
+        // Get current camera position
+        Vector3 camPos = playerCamera.transform.position;
+
+        // Clamp player's future position based on camera boundaries
+        Vector3 futurePos = transform.position + pos;
+
+        // Variables of the cameras minimum and maximum viewpoints
+        float minX = camPos.x - 12f;
+        float maxX = camPos.x + 12f;
+        float minY = -12f;
+        float maxY = 12f;
+
+        futurePos.x = Mathf.Clamp(futurePos.x, minX, maxX);
+        futurePos.y = Mathf.Clamp(futurePos.y, minY, maxY);
+
+        // Set the new movement vector (difference between future and current position)
+        pos = futurePos - transform.position;
 
         // Applies the calculated translation (pos) to the players position.
         transform.Translate(pos);
@@ -87,8 +100,9 @@ public class PlayerMovement : MonoBehaviour
         // If the player is boosting...
         if (isBoosting && playerCamera != null)
         {
+            Rect camRect = playerCamera.pixelRect;
             // a texture is drawn onto the screen to indicate the active effect.
-            GUI.DrawTexture(new Rect(0, 0, playerCamera.pixelWidth, playerCamera.pixelHeight), boostEffect);
+            GUI.DrawTexture(new Rect(camRect.x, camRect.y, camRect.width, camRect.height), boostEffect);
         }
     }
 }

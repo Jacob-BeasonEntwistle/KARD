@@ -20,12 +20,16 @@ public class hit : MonoBehaviour
         // if the colliding object has the tag "Player"...
         if (other.gameObject.tag == "Player")
         {
-            // the score decreases by 25...
-            cargoSpawner.score -= 25;
-            // a message is sent to the console...
-            Debug.Log("Player has crashed into moon");
-            // and the UI 'Damaged' panel becomes active.
-            takenDamage.SetActive(true);
+            PlayerScore pScore = other.gameObject.GetComponent<PlayerScore>();
+            if (pScore != null)
+            {
+                // the score decreases by 25...
+                pScore.score -= 25;
+                // a message is sent to the console...
+                Debug.Log("Player has crashed into moon");
+                // and the UI 'Damaged' panel becomes active.
+                takenDamage.SetActive(true);
+            }
         }
     }
 

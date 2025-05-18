@@ -1519,7 +1519,6 @@ GameObject:
   - component: {fileID: 837817321}
   - component: {fileID: 837817320}
   - component: {fileID: 837817319}
-  - component: {fileID: 837817323}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -1614,19 +1613,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1833268189}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &837817323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 837817318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40bad865c31a94f41b771f9e8ec20cff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentFrame: {x: 0, y: 0}
 --- !u!1 &870686750
 GameObject:
   m_ObjectHideFlags: 0
@@ -3709,8 +3695,8 @@ GameObject:
   - component: {fileID: 1833268190}
   - component: {fileID: 1833268191}
   - component: {fileID: 1833268194}
-  - component: {fileID: 1833268193}
-  - component: {fileID: 1833268192}
+  - component: {fileID: 1833268195}
+  - component: {fileID: 1833268196}
   m_Layer: 0
   m_Name: KARD
   m_TagString: Player
@@ -3807,33 +3793,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &1833268192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1833268186}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d5a2e1e2e8b4a847ab6d6a231da6160, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1833268193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1833268186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8fed32d9e253b24ab67888444cd5e2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentFrame: {x: 0, y: 0}
-  animRenderer: {fileID: 837817320}
-  Player: {fileID: 1833268194}
 --- !u!114 &1833268194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3849,7 +3808,37 @@ MonoBehaviour:
   horizontalAxis: Horizontal
   verticalAxis: Vertical
   playerCamera: {fileID: 519420031}
+  isBoosting: 0
   boostEffect: {fileID: 2800000, guid: cbe55809d7c312b459ebddfb43781997, type: 3}
+--- !u!114 &1833268195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833268186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8fed32d9e253b24ab67888444cd5e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentFrame: {x: 0, y: 0}
+  animRenderer: {fileID: 837817320}
+  Player: {fileID: 1833268194}
+--- !u!114 &1833268196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833268186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 546b595343e6f26479c7b5ca4ac32d6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreText: {fileID: 1174693024}
 --- !u!1 &1884380239
 GameObject:
   m_ObjectHideFlags: 0
@@ -4065,8 +4054,6 @@ MonoBehaviour:
   cargoPrefab:
   - {fileID: 8287010096266901608, guid: 6a56ba4536053c645b2fab7d1e2b2d82, type: 3}
   - {fileID: 8287010096266901608, guid: b4f14235118472444b1f8690a880b2d9, type: 3}
-  scoreText: {fileID: 1174693024}
-  scoreText2: {fileID: 0}
 --- !u!1 &1970475311
 GameObject:
   m_ObjectHideFlags: 0
