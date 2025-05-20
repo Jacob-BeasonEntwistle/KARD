@@ -9,7 +9,6 @@ TagManager:
   - Cargo
   - default
   - Enemy
-  - Player2
   - MainCamera2
   layers:
   - Default
@@ -18,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - PB1
+  - PB2
   - 
   - 
   - 

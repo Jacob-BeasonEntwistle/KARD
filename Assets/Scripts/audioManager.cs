@@ -17,7 +17,7 @@ public class audioManager : MonoBehaviour
     public AudioClip background;    // The background music.
     public AudioClip thrusters;     // The sound for the thrusters.
     public AudioClip collect;       // The collection sound effect.
-    public AudioClip zap;           // The zap sound effect.
+    public AudioClip pew;           // The pew sound effect.
     //https://docs.unity3d.com/6000.0/Documentation/ScriptReference/AudioSource-clip.html
 
     private void Start()
@@ -47,7 +47,7 @@ public class audioManager : MonoBehaviour
 
         if (ships.hasFired == true)
         {
-            SFXSource.clip = zap;                   // the zap sound is loaded...
+            SFXSource.clip = pew;                   // the zap sound is loaded...
             SFXSource.Play();                       // the sound is played...
             Debug.Log("Ship fired lazer.");         // and a message is sent to the Debug Log.
             ships.hasFired = false;

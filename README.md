@@ -21,4 +21,6 @@ He quickly finds out that he's not the only one who wants the cargo, he must eva
 - WSAD to move
 
 ## Credits
-All assets (sprites, textures, sounds, scripts) were made by me.
+Consolas Font © 2005 Microsoft Corporation. All Rights Reserved.
+
+All other assets (sprites, textures, sounds, scripts) were made by me.
