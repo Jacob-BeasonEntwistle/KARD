@@ -21,7 +21,7 @@ public class cargoSpawner : MonoBehaviour
             int selected = getCargo();
 
             // the time till next spawn is a random number between 4 and 10...
-            nextSpawn = Random.Range(4, 10);
+            nextSpawn = Random.Range(2, 5);
             // the time of the previous spawn becomes the new time...
             previousSpawn = Time.time;
             // and an item is spawned from the cargo prefab.
