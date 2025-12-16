@@ -1,4 +1,9 @@
 # KARD
+Created by Jacob Beason Entwistle for 2D game programming. (CMP4264)
+
+![KARD title screen](KARD_title.png)
+
+## Overview
 **Kindly Automated Retrieval Droid**
 
 This project is a 2D side scrolling game which was originally my 2D game programming project for year 1 semester 1 of university. 
@@ -21,6 +26,6 @@ He quickly finds out that he's not the only one who wants the cargo, he must eva
 - WSAD to move
 
 ## Credits
-Consolas Font © 2005 Microsoft Corporation. All Rights Reserved.
+Consolas Font Â© 2005 Microsoft Corporation. All Rights Reserved.
 
 All other assets (sprites, textures, sounds, scripts) were made by me.
